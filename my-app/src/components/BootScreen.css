@@ -1,0 +1,22 @@
+.boot-screen {
+  position: absolute;
+  z-index: 100;
+  top: 30px;
+  left: 30px;
+  color: #00ff88;
+  font-family: monospace;
+}
+
+.power-btn {
+  background: #00ff88;
+  border: none;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+.boot-log p {
+  margin: 8px 0;
+  font-size: 18px;
+}
