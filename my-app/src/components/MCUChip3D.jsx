@@ -1,12 +1,18 @@
+
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Text } from "@react-three/drei";
 
+import Room from "./Room";
+import Workbench from "./Workbench";
+
+
+
 function Chip({ powered }) {
   return (
-    <group>
+    <group scale={1.2}>
 
       {/* PCB BOARD */}
-      <mesh position={[0, -0.5, 0]}>
+      <mesh position={[0, 0.1, 0]}>
         <boxGeometry args={[10, 0.15, 10]} />
         <meshStandardMaterial color="#0a4f2f" />
       </mesh>
@@ -254,32 +260,37 @@ export default function MCUChip3D({ powered }) {
       }}
     >
       <Canvas
-        camera={{
-          position: [7, 5, 7],
-          fov: 45,
-        }}
-      >
-        <ambientLight intensity={2} />
+      shadows
+camera={{
+position: [12, 5, 12],
+fov: 45,
+}}
 
-        <directionalLight
-          position={[5, 5, 5]}
-          intensity={3}
-        />
+>
 
-        <directionalLight
-          position={[-5, 5, -5]}
-          intensity={2}
-        />
+  <ambientLight intensity={0.8} />
 
-        <Chip powered={powered} />
+<spotLight
+position={[0, 8, 5]}
+angle={0.5}
+penumbra={1}
+intensity={70}
+castShadow
+/>
 
-        <OrbitControls
-          autoRotate
-          autoRotateSpeed={0.8}
-          enableZoom
-          target={[0, 0, 0]}
-        />
-      </Canvas>
+  <Room />
+
+  <Workbench />
+
+  <Chip powered={powered} />
+
+<OrbitControls
+autoRotate
+autoRotateSpeed={0.5}
+enableZoom
+target={[0, 0, 0]}
+/> </Canvas>
+
     </div>
   );
 }
