@@ -4,16 +4,31 @@ import { OrbitControls, Text } from "@react-three/drei";
 import { useState, useEffect } from "react";
 import Room from "./Room";
 import Workbench from "./Workbench";
-import PowerBurst from "./PowerBurst";
+
+
 
 
 
 function Chip({
   powered,
   setPowered,
-  setBurst
-}) {
+  
+  
+  
+  
+  
+  
+  setShowTunnel,
+  
+  
+})
+
+    
+ {
   const [flowPosition, setFlowPosition] = useState(-4);
+  
+
+  
   
 
   useEffect(() => {
@@ -70,14 +85,18 @@ function Chip({
 <mesh
   position={[3.2, 0.35, -1]}
   onClick={() => {
-    setPowered(true);
+  setPowered(true);
 
-    setBurst(true);
+   
+  
+    setShowTunnel(true);
+   
+    
 
-    setTimeout(() => {
-      setBurst(false);
-    }, 2000);
-  }}
+  setTimeout(() => {
+    setShowTunnel(false);
+  }, 12000);
+}}
 >
 
   <boxGeometry args={[1.2, 0.4, 1]} />
@@ -358,9 +377,11 @@ function Chip({
 export default function MCUChip3D({
   powered,
   setPowered,
+  setShowTunnel,
 }) {
    const [bootStep, setBootStep] = useState(0);
-   const [burst, setBurst] = useState(false);
+  
+   
 
   useEffect(() => {
     if (!powered) return;
@@ -396,7 +417,8 @@ penumbra={1}
 intensity={70}
 castShadow
 />
-<PowerBurst active={burst} />
+
+
 
   <Room />
 
@@ -405,7 +427,9 @@ castShadow
   <Chip
   powered={powered}
   setPowered={setPowered}
-  setBurst={setBurst}
+  setShowTunnel={setShowTunnel}
+  
+  
 />
 
 <OrbitControls

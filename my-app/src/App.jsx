@@ -1,12 +1,15 @@
 import { useState } from "react";
 import MCUChip3D from "./components/MCUChip3D";
-import EnergyTransition from "./components/EnergyTransition";
+import EnergyTunnel from "./components/EnergyTunnel";
+
 
 
 
 function App() {
   const [powered, setPowered] = useState(false);
-const [energyMode, setEnergyMode] = useState(false);
+const [showTunnel, setShowTunnel] = useState(false);
+
+
   
   
 
@@ -14,22 +17,18 @@ const [energyMode, setEnergyMode] = useState(false);
     
     <>
 
-      <MCUChip3D
-  powered={powered}
-  setPowered={(value) => {
-    setPowered(value);
-
-    if (value) {
-      setEnergyMode(true);
-      
-    }
-  }}
+  
+  
+<MCUChip3D
+ powered={powered}
+ setPowered={setPowered}
+ setShowTunnel={setShowTunnel}
 />
+{showTunnel && <EnergyTunnel />}
 
-<EnergyTransition
-  active={energyMode}
-  onComplete={() => setEnergyMode(false)}
-/>
+
+
+
 
 
       {powered && (
@@ -47,9 +46,12 @@ const [energyMode, setEnergyMode] = useState(false);
           }}
         >
           
+          
         </div>
       )}
     </>
+    
+    
   );
 }
 
