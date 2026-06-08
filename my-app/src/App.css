@@ -182,3 +182,28 @@
     border-right-color: var(--border);
   }
 }
+.flash {
+  position: fixed;
+  inset: 0;
+  background: white;
+  z-index: 99999;
+  pointer-events: none;
+  animation: flashAnim 1s ease-out;
+}
+
+@keyframes flashAnim {
+  0% { opacity: 0; }
+  20% { opacity: 1; }
+  100% { opacity: 0; }
+}
+.powerText {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #00ff88;
+  font-size: 38px;
+  font-weight: bold;
+  text-shadow: 0 0 20px #00ff88;
+  z-index: 100;
+}

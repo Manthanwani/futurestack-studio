@@ -18,9 +18,9 @@ export default function PlasmaCore() {
     <group ref={core}>
       {/* Outer glow */}
       <mesh>
-  <sphereGeometry args={[1.3,32,32]} />
+  <sphereGeometry args={[0.7,32,32]} />
   <meshBasicMaterial
-    color="#66eaff"
+    color="#000000"
     transparent
     opacity={0.08}
   />

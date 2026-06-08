@@ -4,6 +4,7 @@ import { OrbitControls, Text } from "@react-three/drei";
 import { useState, useEffect } from "react";
 import Room from "./Room";
 import Workbench from "./Workbench";
+console.log("ROOM MOUNTED");
 
 
 
@@ -83,20 +84,17 @@ function Chip({
       {/* POWER SWITCH */}
 
 <mesh
+ 
   position={[3.2, 0.35, -1]}
   onClick={() => {
-  setPowered(true);
 
-   
-  
+    if (powered) return;
+
+    setPowered(true);
     setShowTunnel(true);
-   
-    
 
-  setTimeout(() => {
-    setShowTunnel(false);
-  }, 12000);
-}}
+  }}
+
 >
 
   <boxGeometry args={[1.2, 0.4, 1]} />
@@ -379,17 +377,11 @@ export default function MCUChip3D({
   setPowered,
   setShowTunnel,
 }) {
-   const [bootStep, setBootStep] = useState(0);
+  
   
    
 
-  useEffect(() => {
-    if (!powered) return;
-
-    setTimeout(() => setBootStep(1), 1000);
-    setTimeout(() => setBootStep(2), 2500);
-    setTimeout(() => setBootStep(3), 4000);
-  }, [powered]);
+  
   return (
     <div
   style={{
@@ -478,10 +470,7 @@ castShadow
       zIndex: 100,
     }}
   >
-    {bootStep === 0 && "Initializing System..."}
-    {bootStep === 1 && "Loading Profile..."}
-    {bootStep === 2 && "Loading Projects..."}
-    {bootStep === 3 && "System Ready"}
+   
   </div>
 )}
 

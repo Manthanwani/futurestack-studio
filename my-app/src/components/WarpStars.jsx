@@ -6,11 +6,11 @@ export default function WarpStars() {
 
   const stars = [];
 
-  for (let i = 0; i < 800; i++) {
+  for (let i = 0; i < 200; i++) {
     stars.push({
       x: (i % 40) - 20,
       y: ((i * 7) % 40) - 20,
-      z: -i * 0.5,
+      z: -i * 1.5,
     });
   }
 
@@ -33,9 +33,9 @@ export default function WarpStars() {
           key={i}
           position={[s.x, s.y, s.z]}
         >
-          <sphereGeometry args={[0.008, 4, 4]} />
+          <sphereGeometry args={[0.01, 4, 4]} />
           <meshBasicMaterial
-            color="#7bdfff"
+            color="#7de8ff"
             toneMapped={false}
             opacity={0.2}
           />

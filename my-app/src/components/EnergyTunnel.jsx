@@ -1,21 +1,34 @@
+
+
 import { Canvas } from "@react-three/fiber";
-import PlasmaCore from "./PlasmaCore";
-import PlasmaNodes from "./PlasmaNodes";
-import ElectricLines from "./ElectricLines";
-import PlasmaWeb from "./PlasmaWeb";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
-import EnergyPulse from "./EnergyPulse";
-import CameraMotion from "./CameraMotion";
-import LightningArcs from "./LightningArcs";
-import ElectricField from "./ElectricField";
-
-import MovingPlasmaNodes from "./MovingPlasmaNodes";
-
-
-import SpiralArms from "./SpiralArms";
 import WarpStars from "./WarpStars";
+import PlasmaCore from "./PlasmaCore";
+import EnergyPulse from "./EnergyPulse";
+import PlasmaWeb from "./PlasmaWeb";
+import VortexRing from "./VortexRing";
+import SpiralArms from "./SpiralArms";
+import MovingPlasmaNodes from "./MovingPlasmaNodes";
+import ElectricLines from "./ElectricLines";
+import ElectricField from "./ElectricField";
+import LightningArcs from "./LightningArcs";
+import PlasmaNodes from "./PlasmaNodes";
+import CameraMotion from "./CameraMotion";
+{/*
 
 
+
+
+  
+
+
+
+
+
+
+
+
+*/}
 
 export default function EnergyTunnel() {
   return (
@@ -28,7 +41,8 @@ export default function EnergyTunnel() {
         zIndex: 9999,
       }}
     >
-      <Canvas camera={{ position: [0, 0, 4], fov: 80 }}>
+      <Canvas camera={{ position:[0,0,7], fov:85 }}>
+        <group position={[0.4, -0.2, 0]}></group>
   <ambientLight intensity={5} />
 
   <pointLight
@@ -37,8 +51,23 @@ export default function EnergyTunnel() {
     color="#05081a"
   />
   <color attach="background" args={["#020616"]} />
+{/*
+ 
 
- <WarpStars />
+
+
+
+
+
+
+
+
+
+
+
+
+ */}
+<WarpStars />
 
 <ElectricField />
 
@@ -54,11 +83,15 @@ export default function EnergyTunnel() {
 
 <LightningArcs />
 
+<VortexRing />
+
 <EnergyPulse />
 
 <PlasmaCore />
 
 <CameraMotion />
+
+
   
   
   <EffectComposer>

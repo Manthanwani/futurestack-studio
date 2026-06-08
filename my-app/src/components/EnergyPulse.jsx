@@ -20,7 +20,7 @@ export default function EnergyPulse() {
 
   return (
     <mesh ref={pulse}>
-      <sphereGeometry args={[0.6, 32, 32]} />
+      <sphereGeometry args={[0.8, 32, 32]} />
       <meshBasicMaterial
         color="#10313a"
         transparent

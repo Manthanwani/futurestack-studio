@@ -6,8 +6,8 @@ export default function ElectricField() {
 
   const lines = [];
 
-  const arms = 180;
-  const pointsPerArm = 200;
+  const arms = 60;
+  const pointsPerArm = 120;
 
   for (let arm = 0; arm < arms; arm++) {
     const vertices = [];
@@ -40,11 +40,22 @@ export default function ElectricField() {
     lines.push(vertices);
   }
 
-  useFrame(() => {
-    if (group.current) {
-      group.current.rotation.z += 0.003;
-    }
-  });
+ useFrame(({ clock }) => {
+  if (!group.current) return;
+
+  group.current.rotation.z += 0.001;
+
+  const pulse =
+    1 +
+    Math.sin(clock.elapsedTime * 2) *
+      0.05;
+
+  group.current.scale.set(
+    pulse,
+    pulse,
+    pulse
+  );
+});
 
   return (
     <group ref={group}>

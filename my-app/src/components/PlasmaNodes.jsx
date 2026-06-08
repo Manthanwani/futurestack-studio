@@ -1,7 +1,7 @@
 export default function PlasmaNodes() {
   const points = [];
 
-  for (let i = 0; i < 15000; i++) {
+  for (let i = 0; i < 250; i++) {
     const angle = i * 0.25;
     const radius = 2 + Math.sin(i * 0.15) * 1.2;
 
@@ -19,7 +19,7 @@ export default function PlasmaNodes() {
           key={i}
           position={p}
         >
-          <sphereGeometry args={[0.008, 6, 6]} />
+          <sphereGeometry args={[0.015, 4, 4]} />
           <meshBasicMaterial
  color={
    i % 3 === 0

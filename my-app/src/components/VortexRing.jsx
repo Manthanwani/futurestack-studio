@@ -7,17 +7,17 @@ export default function VortexRing() {
   useFrame((state) => {
     if (ring.current) {
       ring.current.rotation.z += 0.03;
-      ring.current.rotation.x =
+      ring.current.rotation.x = 0.4;
         Math.sin(state.clock.elapsedTime) * 0.2;
     }
   });
 
   return (
     <mesh ref={ring}>
-      <torusGeometry args={[0.9, 0.03, 16, 150]} />
+      <torusGeometry args={[1.1, 0.04, 8, 200]} />
       <meshStandardMaterial
-        color="#7eabb4"
-        emissive="#abab95"
+        color="#baffff"
+        emissive="#baffff"
         emissiveIntensity={2}
       />
     </mesh>

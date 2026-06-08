@@ -6,7 +6,7 @@ export default function MovingPlasmaNodes() {
 
   const nodes = [];
 
-  for (let i = 0; i < 250; i++) {
+  for (let i = 0; i < 100; i++) {
     nodes.push({
       angle: i * 0.15,
       radius: 2 + Math.sin(i * 0.3),
@@ -20,12 +20,18 @@ export default function MovingPlasmaNodes() {
     group.current.children.forEach((mesh, i) => {
       const t = clock.elapsedTime + nodes[i].offset;
 
-      mesh.position.x *= 0.998;
-      mesh.position.y *= 0.998;
-    
+    if (
+  Math.abs(mesh.position.x) < 0.1 &&
+  Math.abs(mesh.position.y) < 0.1
+) {
+  mesh.position.x =
+    (Math.random() - 0.5) * 5;
 
-      mesh.position.z =
-        Math.sin(t) * 0.5;
+  mesh.position.y =
+    (Math.random() - 0.5) * 5;
+}
+   mesh.position.z =
+    Math.sin(t) * 3;
     });
   
     
@@ -36,8 +42,8 @@ export default function MovingPlasmaNodes() {
       {nodes.map((_, i) => (
         <mesh key={i}>
          scale={0.0001}
-          <sphereGeometry args={[0.001, 6, 6]} />
-          <meshBasicMaterial color="#2f5560" />
+          <sphereGeometry args={[0.006, 4, 4]} />
+          <meshBasicMaterial color="#9ffcff" />
         </mesh>
       ))}
     </group>
