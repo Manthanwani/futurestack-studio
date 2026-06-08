@@ -64,10 +64,11 @@ useEffect(() => {
   <Canvas
     shadows
     camera={{
-      position: [0, 6, 18],
-      fov: 60,
+      position: [0, 7, 18],
+      fov: 55,
     }}
   >
+    <color attach="background" args={["#050b17"]} />
     <ambientLight intensity={1.5} />
     <directionalLight
       position={[10, 10, 10]}
@@ -75,6 +76,7 @@ useEffect(() => {
     />
 
   <Room active={powered} />
+  
   
 
     

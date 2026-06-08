@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
-import { Text } from "@react-three/drei";
+
+import DeveloperDesk from "./DeveloperDesk";
+import { Text, OrbitControls } from "@react-three/drei";
 console.log("ROOM MOUNTED");
-import Workbench from "./Workbench";
+
+
 export default function Room({ active }) {
 const [screenText, setScreenText] = useState("");
 const [showWalls, setShowWalls] = useState(false);
@@ -55,133 +58,174 @@ const [monitorOn, setMonitorOn] = useState(false);
   
 
   return (
+    <>
+    <OrbitControls
+      target={[0, 2, -10]}
+      enablePan={false}
+    />
     <group>
-      <Workbench />
+      {active && (
+  <DeveloperDesk />
+)}
 
       {/* FLOOR */}
       <mesh position={[0, -4.5, 0]}>
         <boxGeometry args={[50, 0.5, 50]} />
-        <meshStandardMaterial color="#555555" />
+        <meshStandardMaterial
+  color="#c69c6d"
+  roughness={0.85}
+  metalness={0.15}
+/>
       </mesh>
 
       
 
       {showWalls && (
   <>
-    {/* BACK WALL */}
-    <Text
-      position={[0, 10, -24.5]}
-      fontSize={0.5}
-      color="#00ffff"
-    >
-      CONTACT
-    </Text>
+   {/*  BACK WALL  */}
 
-    <Text
-      position={[0, 8, -24.5]}
-      fontSize={0.22}
-      color="white"
-    >
-      LinkedIn
-    </Text>
+<mesh position={[0, 3, -25]}>
+  <boxGeometry args={[50, 15, 0.5]} />
+  <meshStandardMaterial
+    color="#f5efe6"
+    roughness={0.95}
+  />
+</mesh>
 
-    <Text
-      position={[0, 7, -24.5]}
-      fontSize={0.22}
-      color="white"
-    >
-      GitHub
-    </Text>
+<Text
+  position={[0, 10, -24.5]}
+  fontSize={0.55}
+  color="#0ea5e9"
+>
+  CONTACT
+</Text>
 
-    <Text
-      position={[0, 6, -24.5]}
-      fontSize={0.22}
-      color="white"
-    >
-      Email
-    </Text>
+<Text
+  position={[0, 8, -24.5]}
+  fontSize={0.25}
+  color="#374151"
+>
+  LinkedIn
+</Text>
 
-    {/* LEFT WALL */}
-    <Text
-      position={[-14.6, 9, 0]}
-      rotation={[0, Math.PI / 2, 0]}
-      fontSize={0.5}
-      color="#00ffff"
-    >
-      SKILLS
-    </Text>
+<Text
+  position={[0, 7, -24.5]}
+  fontSize={0.25}
+  color="#374151"
+>
+  GitHub
+</Text>
 
-    <Text
-      position={[-14.6, 7, 0]}
-      rotation={[0, Math.PI / 2, 0]}
-      fontSize={0.22}
-      color="white"
-    >
-      React
-    </Text>
+<Text
+  position={[0, 6, -24.5]}
+  fontSize={0.25}
+  color="#374151"
+>
+  Email
+</Text>
 
-    <Text
-      position={[-14.6, 6, 0]}
-      rotation={[0, Math.PI / 2, 0]}
-      fontSize={0.22}
-      color="white"
-    >
-      JavaScript
-    </Text>
 
-    <Text
-      position={[-14.6, 5, 0]}
-      rotation={[0, Math.PI / 2, 0]}
-      fontSize={0.22}
-      color="white"
-    >
-      Python
-    </Text>
+{/*  LEFT WALL  */}
 
-    <Text
-      position={[-14.6, 4, 0]}
-      rotation={[0, Math.PI / 2, 0]}
-      fontSize={0.22}
-      color="white"
-    >
-      Embedded Systems
-    </Text>
+<mesh position={[-25, 3, 0]}>
+  <boxGeometry args={[0.5, 15, 50]} />
+  <meshStandardMaterial
+    color="#f5efe6"
+    roughness={0.95}
+  />
+</mesh>
 
-    {/* RIGHT WALL */}
-    <Text
-      position={[14.6, 9, 0]}
-      rotation={[0, -Math.PI / 2, 0]}
-      fontSize={0.5}
-      color="#00ffff"
-    >
-      PROJECTS
-    </Text>
+<Text
+  position={[-24.6, 10, 0]}
+  rotation={[0, Math.PI / 2, 0]}
+  fontSize={0.55}
+  color="#8b5cf6"
+>
+  SKILLS
+</Text>
 
-    <Text
-      position={[14.6, 7, 0]}
-      rotation={[0, -Math.PI / 2, 0]}
-      fontSize={0.22}
-      color="white"
-    >
-      IoT Predictive Maintenance
-    </Text>
+<Text
+  position={[-24.6, 8, 0]}
+  rotation={[0, Math.PI / 2, 0]}
+  fontSize={0.25}
+  color="#374151"
+>
+  React
+</Text>
 
-    <Text
-      position={[14.6, 6, 0]}
-      rotation={[0, -Math.PI / 2, 0]}
-      fontSize={0.22}
-      color="white"
-    >
-      Smart Irrigation System
-    </Text>
+<Text
+  position={[-24.6, 7, 0]}
+  rotation={[0, Math.PI / 2, 0]}
+  fontSize={0.25}
+  color="#374151"
+>
+  JavaScript
+</Text>
 
-    <Text
-      position={[14.6, 5, 0]}
-      rotation={[0, -Math.PI / 2, 0]}
-      fontSize={0.22}
-      color="white"
-    >
-      3D Portfolio
+<Text
+  position={[-24.6, 6, 0]}
+  rotation={[0, Math.PI / 2, 0]}
+  fontSize={0.25}
+  color="#374151"
+>
+  Python
+</Text>
+
+<Text
+  position={[-24.6, 5, 0]}
+  rotation={[0, Math.PI / 2, 0]}
+  fontSize={0.25}
+  color="#374151"
+>
+  Embedded Systems
+</Text>
+
+
+{/*RIGHT WALL*/}
+
+<mesh position={[25, 3, 0]}>
+  <boxGeometry args={[0.5, 15, 50]} />
+  <meshStandardMaterial
+    color="#f5efe6"
+    roughness={0.95}
+  />
+</mesh>
+
+<Text
+  position={[24.6, 10, 0]}
+  rotation={[0, -Math.PI / 2, 0]}
+  fontSize={0.55}
+  color="#ec4899"
+>
+  PROJECTS
+</Text>
+
+<Text
+  position={[24.6, 8, 0]}
+  rotation={[0, -Math.PI / 2, 0]}
+  fontSize={0.25}
+  color="#374151"
+>
+  IoT Predictive Maintenance
+</Text>
+
+<Text
+  position={[24.6, 7, 0]}
+  rotation={[0, -Math.PI / 2, 0]}
+  fontSize={0.25}
+  color="#374151"
+>
+  Smart Irrigation System
+</Text>
+
+<Text
+  position={[24.6, 6, 0]}
+  rotation={[0, -Math.PI / 2, 0]}
+  fontSize={0.25}
+  color="#374151"
+>
+  3D Portfolio
+
     </Text>
   </>
 )}
@@ -191,9 +235,9 @@ const [monitorOn, setMonitorOn] = useState(false);
 <mesh position={[0, 3, -18]} castShadow>
   <boxGeometry args={[9, 5.2, 0.4]} />
   <meshStandardMaterial
-    color="#0a0f1f"
-    metalness={0.8}
-    roughness={0.3}
+    color="#05070d"
+    metalness={1}
+    roughness={0.15}
   />
 </mesh>
 
@@ -201,7 +245,7 @@ const [monitorOn, setMonitorOn] = useState(false);
      
 
      
-<mesh position={[0, 4, -17.75]}>
+<mesh position={[0, 3, -17.75]}>
   <boxGeometry args={[8, 4.2, 0.08]} />
   <meshStandardMaterial
     color="#00ff88"
@@ -262,6 +306,8 @@ const [monitorOn, setMonitorOn] = useState(false);
   color="#00ff88"
 />
 
+
     </group>
+    </>
   );
 }

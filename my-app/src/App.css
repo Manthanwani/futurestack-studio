@@ -185,7 +185,7 @@
 .flash {
   position: fixed;
   inset: 0;
-  background: white;
+  background: #00ffff;
   z-index: 99999;
   pointer-events: none;
   animation: flashAnim 1s ease-out;
