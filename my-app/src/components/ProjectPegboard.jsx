@@ -73,21 +73,21 @@ export default function ProjectPegboard() {
       {/* Project Cards */}
       <ProjectCard
         position={[-2.5, 0.5, 0.1]}
-        title={"IoT Predictive\nMaintenance"}
-        url="https://github.com/YOUR_USERNAME"
+        title={"3D Portfolio\nWebsite"}
+        url="https://github.com/Manthanwani/futurestack-studio"
         color="#00e5ff"
       />
 
       <ProjectCard
         position={[0, 0.5, 0.1]}
-        title={"Smart\nIrrigation"}
+        title={"Multi Tanent SAAS system\nwebsite"}
         url="https://github.com/YOUR_USERNAME"
         color="#22c55e"
       />
 
       <ProjectCard
         position={[2.5, 0.5, 0.1]}
-        title={"3D Portfolio\nWebsite"}
+        title={"IOT Predictive Maintenance \nWebsite"}
         url="https://github.com/YOUR_USERNAME"
         color="#f97316"
       />

@@ -2,7 +2,8 @@
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Text } from "@react-three/drei";
 import { useState, useEffect } from "react";
-import Room from "./Room";
+{ /*import Room from "./Room";*/}
+import RoomStructure from "./RoomStructure";
 import Workbench from "./Workbench";
 console.log("ROOM MOUNTED");
 
@@ -411,8 +412,8 @@ castShadow
 />
 
 
-
-  <Room />
+<RoomStructure />
+  {/*<Room />*/}
 
   <Workbench />
 
@@ -446,8 +447,6 @@ castShadow
   color: "#fff",
   fontSize: "34px",
   fontWeight: "bold",
-  textShadow:
-    "0 0 10px #00ff88, 0 0 30px #00ff88",
 
     }}
   >

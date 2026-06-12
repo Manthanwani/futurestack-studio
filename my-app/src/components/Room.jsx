@@ -17,6 +17,7 @@ const [showWalls, setShowWalls] = useState(false);
 const [monitorOn, setMonitorOn] = useState(false);
 
   useEffect(() => {
+    console.log("room mount")
 
   if (!active) return;
 
@@ -74,6 +75,44 @@ const [monitorOn, setMonitorOn] = useState(false);
   <DeveloperDesk />
 )}
 
+
+      
+
+      {showWalls && (
+  <> 
+  {/* LARGE PLANT */}
+    <group position={[-13, -4, -18]}>
+      <mesh position={[0, 1, 0]}>
+        <cylinderGeometry args={[0.8, 1, 2, 32]} />
+        <meshStandardMaterial color="#f5f5f5" />
+      </mesh>
+
+      <mesh position={[0, 3, 0]}>
+        <cylinderGeometry args={[0.08, 0.08, 3, 16]} />
+        <meshStandardMaterial color="#4b5563" />
+      </mesh>
+
+      <mesh position={[0.5, 3.8, 0]}>
+        <sphereGeometry args={[0.6, 16, 16]} />
+        <meshStandardMaterial color="#22c55e" />
+      </mesh>
+
+      <mesh position={[-0.5, 4.5, 0]}>
+        <sphereGeometry args={[0.7, 16, 16]} />
+        <meshStandardMaterial color="#16a34a" />
+      </mesh>
+
+      <mesh position={[0.6, 5.3, 0]}>
+        <sphereGeometry args={[0.65, 16, 16]} />
+        <meshStandardMaterial color="#22c55e" />
+      </mesh>
+
+      <mesh position={[-0.4, 6, 0]}>
+        <sphereGeometry args={[0.7, 16, 16]} />
+        <meshStandardMaterial color="#15803d" />
+      </mesh>
+    </group>
+  
       {/* FLOOR */}
       <mesh position={[0, -4.5, 0]}>
         <boxGeometry args={[33, 0.5, 50]} />
@@ -83,11 +122,6 @@ const [monitorOn, setMonitorOn] = useState(false);
   metalness={0.15}
 />
       </mesh>
-
-      
-
-      {showWalls && (
-  <>
    {/*  BACK WALL  */}
 
 <mesh position={[0, 3, -20]}>
@@ -132,17 +166,6 @@ const [monitorOn, setMonitorOn] = useState(false);
     roughness={0.95}
   />
 </mesh>
-
-
- 
-
-
-
-
-
-
-
-
 {/*RIGHT WALL*/}
 
 <mesh position={[16, 3, 0]}>
@@ -152,6 +175,7 @@ const [monitorOn, setMonitorOn] = useState(false);
     roughness={0.95}
   />
 </mesh>
+
 
 
   
