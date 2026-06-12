@@ -1,7 +1,13 @@
 import { useState, useEffect } from "react";
-
+import ContactFrame from "./ContactFrame";
 import DeveloperDesk from "./DeveloperDesk";
 import { Text, OrbitControls } from "@react-three/drei";
+import linkedinImg from "./images/linkdin.png";
+import githubImg from "./images/github.png";
+import gmailImg from "./images/gmail.png";
+import resumeImg from "./images/resume.png";
+import LeftWallBooks from "./LeftWallBooks";
+import ProjectPegboard from "./ProjectPegboard";
 console.log("ROOM MOUNTED");
 
 
@@ -70,7 +76,7 @@ const [monitorOn, setMonitorOn] = useState(false);
 
       {/* FLOOR */}
       <mesh position={[0, -4.5, 0]}>
-        <boxGeometry args={[50, 0.5, 50]} />
+        <boxGeometry args={[33, 0.5, 50]} />
         <meshStandardMaterial
   color="#c69c6d"
   roughness={0.85}
@@ -84,50 +90,42 @@ const [monitorOn, setMonitorOn] = useState(false);
   <>
    {/*  BACK WALL  */}
 
-<mesh position={[0, 3, -25]}>
-  <boxGeometry args={[50, 15, 0.5]} />
+<mesh position={[0, 3, -20]}>
+  <boxGeometry args={[33, 15, 0.5]} />
   <meshStandardMaterial
     color="#f5efe6"
     roughness={0.95}
   />
 </mesh>
 
-<Text
-  position={[0, 10, -24.5]}
-  fontSize={0.55}
-  color="#0ea5e9"
->
-  CONTACT
-</Text>
+<ContactFrame
+  position={[11, 7, -19]}
+  image={resumeImg}
+  url="/resume.pdf"
+/>
 
-<Text
-  position={[0, 8, -24.5]}
-  fontSize={0.25}
-  color="#374151"
->
-  LinkedIn
-</Text>
+<ContactFrame
+  position={[11,3,-19]}
+  image={linkedinImg}
+  url="https://www.linkedin.com/in/manthan-wani"
+/>
 
-<Text
-  position={[0, 7, -24.5]}
-  fontSize={0.25}
-  color="#374151"
->
-  GitHub
-</Text>
+<ContactFrame
+  position={[14, 3, -19]}
+  image={githubImg}
+  url="https://github.com/Manthanwani"
+/>
 
-<Text
-  position={[0, 6, -24.5]}
-  fontSize={0.25}
-  color="#374151"
->
-  Email
-</Text>
+<ContactFrame
+  position={[8, 3, -19]}
+  image={gmailImg}
+  url="manwani5656@gmail.com"
+/>
 
 
 {/*  LEFT WALL  */}
 
-<mesh position={[-25, 3, 0]}>
+<mesh position={[-16, 3, 0]}>
   <boxGeometry args={[0.5, 15, 50]} />
   <meshStandardMaterial
     color="#f5efe6"
@@ -135,55 +133,19 @@ const [monitorOn, setMonitorOn] = useState(false);
   />
 </mesh>
 
-<Text
-  position={[-24.6, 10, 0]}
-  rotation={[0, Math.PI / 2, 0]}
-  fontSize={0.55}
-  color="#8b5cf6"
->
-  SKILLS
-</Text>
 
-<Text
-  position={[-24.6, 8, 0]}
-  rotation={[0, Math.PI / 2, 0]}
-  fontSize={0.25}
-  color="#374151"
->
-  React
-</Text>
+ 
 
-<Text
-  position={[-24.6, 7, 0]}
-  rotation={[0, Math.PI / 2, 0]}
-  fontSize={0.25}
-  color="#374151"
->
-  JavaScript
-</Text>
 
-<Text
-  position={[-24.6, 6, 0]}
-  rotation={[0, Math.PI / 2, 0]}
-  fontSize={0.25}
-  color="#374151"
->
-  Python
-</Text>
 
-<Text
-  position={[-24.6, 5, 0]}
-  rotation={[0, Math.PI / 2, 0]}
-  fontSize={0.25}
-  color="#374151"
->
-  Embedded Systems
-</Text>
+
+
+
 
 
 {/*RIGHT WALL*/}
 
-<mesh position={[25, 3, 0]}>
+<mesh position={[16, 3, 0]}>
   <boxGeometry args={[0.5, 15, 50]} />
   <meshStandardMaterial
     color="#f5efe6"
@@ -191,42 +153,9 @@ const [monitorOn, setMonitorOn] = useState(false);
   />
 </mesh>
 
-<Text
-  position={[24.6, 10, 0]}
-  rotation={[0, -Math.PI / 2, 0]}
-  fontSize={0.55}
-  color="#ec4899"
->
-  PROJECTS
-</Text>
 
-<Text
-  position={[24.6, 8, 0]}
-  rotation={[0, -Math.PI / 2, 0]}
-  fontSize={0.25}
-  color="#374151"
->
-  IoT Predictive Maintenance
-</Text>
+  
 
-<Text
-  position={[24.6, 7, 0]}
-  rotation={[0, -Math.PI / 2, 0]}
-  fontSize={0.25}
-  color="#374151"
->
-  Smart Irrigation System
-</Text>
-
-<Text
-  position={[24.6, 6, 0]}
-  rotation={[0, -Math.PI / 2, 0]}
-  fontSize={0.25}
-  color="#374151"
->
-  3D Portfolio
-
-    </Text>
   </>
 )}
       
@@ -305,6 +234,8 @@ const [monitorOn, setMonitorOn] = useState(false);
   distance={20}
   color="#00ff88"
 />
+{showWalls && <LeftWallBooks />}
+{showWalls && <ProjectPegboard />}
 
 
     </group>
